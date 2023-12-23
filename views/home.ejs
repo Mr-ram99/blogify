@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head') %>
+    <title>Blogify</title>
+</head>
+
+<body>
+  <%- include('./partials/nav') %>
+    <div class="container mt-2">
+      <div class="d-flex justify-content-between flex-wrap">
+        <% blogs.forEach(blog=> { %>
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<%= blog.coverImageURL %>" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= blog.title %>
+              </h5>
+              <a href="/blog/<%= blog._id %>" class="btn btn-primary">Read</a>
+            </div>
+          </div>
+          <% }) %>
+      </div>
+    </div>
+    <%- include('./partials/script') %>
+</body>
+
+</html>
